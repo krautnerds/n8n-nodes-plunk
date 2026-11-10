@@ -29,6 +29,7 @@ An implementation-ready **spec** for `n8n-nodes-plunk`: resources and operations
 
 - [Plunk API surface](issues/01-plunk-api-surface.md): Bearer auth, `sk_` everywhere except `/v1/track` (`pk_` only); Cloud base `https://next-api.useplunk.com`, self-hosted at root; 3 pagination styles; two error shapes; unversioned resource routes; no webhook subscription API; Plunk schemas not reusable.
 - [Plunk events for triggers](issues/02-plunk-events-for-triggers.md): only push path is a workflow WEBHOOK step (unsigned, no retry, SSRF-guarded), fully automatable via `sk_` `/workflows`; event set = email.*, contact.(un)subscribed, segment entry/exit, custom; polling fallback via `/events`, `/activity`, `/contacts`.
+- [Reference repos and README/SEO patterns](issues/04-reference-repos-and-seo.md): model on `resend/n8n-nodes-resend` (+ Loops, AgentMail, IMAP for CI); display name must be exactly "Plunk"; npm search is plain text; Verified ≠ Official, and an n8n.io page realistically needs Plunk as maintainer; vendor wiki link is the best off-n8n lever.
 
 ## Not yet specified
 
