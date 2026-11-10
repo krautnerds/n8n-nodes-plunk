@@ -27,11 +27,14 @@ An implementation-ready **spec** for `n8n-nodes-plunk`: resources and operations
 
 <!-- one line per closed ticket: [title](issues/NN-slug.md): gist -->
 
+- [Plunk API surface](issues/01-plunk-api-surface.md): Bearer auth, `sk_` everywhere except `/v1/track` (`pk_` only); Cloud base `https://next-api.useplunk.com`, self-hosted at root; 3 pagination styles; two error shapes; unversioned resource routes; no webhook subscription API; Plunk schemas not reusable.
+
 ## Not yet specified
 
 - **AI Agent tool UX**: how operation/field descriptions should be worded so agents pick and fill them correctly; whether some operations should be hidden from tool use.
 - **Example workflows / n8n templates**: which showcase workflows ship with the README or go to the n8n template gallery.
 - **Error and pagination UX in detail**: how Plunk errors surface in n8n, "Return All"/limit behaviour, continue-on-fail semantics. Depends on the API research and the architecture decision.
+- **API drift strategy**: resource routes are unversioned with docs/code drift; how the node pins and detects Plunk version changes (contract tests against a pinned Docker image, supported-version range).
 - **Spec assembly**: the shape of the final spec document and who/what consumes it (likely `/to-issues`).
 
 ## Out of scope
