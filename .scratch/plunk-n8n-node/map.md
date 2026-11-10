@@ -28,6 +28,7 @@ An implementation-ready **spec** for `n8n-nodes-plunk`: resources and operations
 <!-- one line per closed ticket: [title](issues/NN-slug.md): gist -->
 
 - [Plunk API surface](issues/01-plunk-api-surface.md): Bearer auth, `sk_` everywhere except `/v1/track` (`pk_` only); Cloud base `https://next-api.useplunk.com`, self-hosted at root; 3 pagination styles; two error shapes; unversioned resource routes; no webhook subscription API; Plunk schemas not reusable.
+- [Plunk events for triggers](issues/02-plunk-events-for-triggers.md): only push path is a workflow WEBHOOK step (unsigned, no retry, SSRF-guarded), fully automatable via `sk_` `/workflows`; event set = email.*, contact.(un)subscribed, segment entry/exit, custom; polling fallback via `/events`, `/activity`, `/contacts`.
 
 ## Not yet specified
 
