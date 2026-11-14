@@ -20,7 +20,7 @@ An implementation-ready **spec** for `n8n-nodes-plunk`: resources and operations
   - Plunk API is understood by **reading Plunk's source** (apps/api, wiki, `@plunk/mcp`), not via `/reverse-engineer-anything` (REA is for shipped binaries, not source repos).
   - Test environment: **local self-hosted Plunk via Docker** (no cloud account for now).
 - The originally pasted pre-research is unreliable: wrong service name ("UsePunk"), invented base URL, and 6 of 7 cited reference repos don't exist. Treat it as hypotheses only.
-- Repo default branch on GitHub is currently `chore/wayfinder-map` (first push); a `main` base branch still needs creating. The scaffolded `n8n-node release` assumes `main`; see Release and verification pipeline.
+- Repo default branch is `main` (created 2026-11-14 from the first map commit, never committed to directly); work lands via PRs from feature branches. The scaffolded `n8n-node release` pushes to `main`, which clashes with that rule; see Release and verification pipeline.
 - Skills for sessions: grilling + domain-modeling for grilling tickets; research for research tickets. Glossary: `/GLOSSARY.md`.
 - Research findings live on throwaway `research/<slug>` branches under `claudedocs/research/`, never merged.
 
