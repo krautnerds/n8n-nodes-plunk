@@ -23,6 +23,7 @@ An implementation-ready **spec** for `n8n-nodes-plunk`: resources and operations
 - Repo default branch is `main` (created 2026-11-14 from the first map commit, never committed to directly); work lands via PRs from feature branches. The scaffolded `n8n-node release` pushes to `main`, which clashes with that rule; see Release and verification pipeline.
 - Skills for sessions: grilling + domain-modeling for grilling tickets; research for research tickets. Glossary: `/GLOSSARY.md`.
 - Research findings live on throwaway `research/<slug>` branches under `claudedocs/research/`, never merged.
+- **Execution exception** (decided in Engineering standards, 2026-11-22): the map may carry exactly one execution ticket before the spec is done, [Repo baseline scaffold](issues/15-repo-baseline-scaffold.md). It builds the tooling baseline (configs, CI, contributor docs, a stub node) to prove the standards, lands on `main` via PR, and implements no real operations. Everything else stays planning.
 
 ## Decisions so far
 
@@ -33,6 +34,7 @@ An implementation-ready **spec** for `n8n-nodes-plunk`: resources and operations
 - [Reference repos and README/SEO patterns](issues/04-reference-repos-and-seo.md): model on `resend/n8n-nodes-resend` (+ Loops, AgentMail, IMAP for CI); display name must be exactly "Plunk"; npm search is plain text; Verified ≠ Official, and an n8n.io page realistically needs Plunk as maintainer; vendor wiki link is the best off-n8n lever.
 - [n8n community node and verification rules 2026](issues/03-n8n-verification-rules.md): zero runtime deps, peer `n8n-workflow` only, provenance publishing from GitHub Actions, scanner lints source + tarball and ignores `eslint-disable`; action node declarative + `usableAsTool`, trigger programmatic; tests in top-level `test/`; strict lint needs a second config; n8n 3.0 makes verification near-mandatory.
 - [Strict tooling compatibility with n8n node tooling](issues/05-tooling-compatibility.md): strict is feasible: n8n ESLint config untouched + second strict config (typescript-eslint pinned 8.70.0); TS 6 + node16, all strict flags except `verbatimModuleSyntax`/`isolatedDeclarations`; vitest + mock-extended + nock; own zod schemas (`zod@3.25.76`, `zod/v4`); fallow with explicit entries and transport boundary; lefthook.
+- [Engineering standards](issues/11-engineering-standards.md): n8n files untouched + own strict layer; npm, Node 24, exact pins, TS 6 `node16`/ES2024 with all strict flags but `verbatimModuleSyntax`/`isolatedDeclarations`; `lint` = n8n + strict ESLint, no `eslint-disable` in shipped code; no runtime zod, guarded by ESLint + fallow + dist import check; unit/node/contract/e2e tests, 100 % on transport/shared, 95/90 global; fallow explicit zones; lefthook + commitlint; 12-step CI; Renovate; AGENTS.md as rule source.
 
 ## Not yet specified
 
@@ -40,6 +42,7 @@ An implementation-ready **spec** for `n8n-nodes-plunk`: resources and operations
 - **Example workflows / n8n templates**: which showcase workflows ship with the README or go to the n8n template gallery.
 - **Error and pagination UX in detail**: how Plunk errors surface in n8n, "Return All"/limit behaviour, continue-on-fail semantics. Depends on the API research and the architecture decision.
 - **API drift strategy**: resource routes are unversioned with docs/code drift; how the node pins and detects Plunk version changes (contract tests against a pinned Docker image, supported-version range).
+- **Mutation testing**: whether to add Stryker later (e.g. nightly on `transport/` and `shared/`) once there is real code to mutate; kept out of the baseline.
 - **Spec assembly**: the shape of the final spec document and who/what consumes it (likely `/to-issues`).
 
 ## Out of scope
