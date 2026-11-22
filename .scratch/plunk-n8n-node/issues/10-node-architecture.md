@@ -1,7 +1,8 @@
 # Node architecture
 
 Type: grilling
-Status: open
+Status: claimed
+Assignee: Lucas Jahn (wayfinder session, 2026-11-22)
 Blocked by: 01, 03, 05
 Map: [../map.md](../map.md)
 
