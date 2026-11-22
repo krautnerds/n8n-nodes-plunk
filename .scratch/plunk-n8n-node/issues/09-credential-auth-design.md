@@ -1,7 +1,7 @@
 # Credential and auth design
 
 Type: grilling
-Status: open
+Status: claimed
 Blocked by: 01, 03
 Map: [../map.md](../map.md)
 
